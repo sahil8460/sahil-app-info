@@ -6,7 +6,7 @@ function App() {
     const [data, setData] = React.useState(null);
 
     React.useEffect(() => {
-        fetch("http://localhost:3001/api")
+        fetch("https://jsonplaceholder.typicode.com/todos")
             .then((res) => res.json())
             .then((data) => {
                 console.log("message", data);
