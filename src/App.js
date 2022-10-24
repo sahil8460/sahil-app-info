@@ -6,19 +6,21 @@ function App() {
     const [data, setData] = React.useState(null);
 
     React.useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/todos")
+        fetch("http://sahil-json-server.herokuapp.com/users")
             .then((res) => res.json())
             .then((data) => {
-                console.log("message", data);
-                setData(data.message)
+                setData(data);
             });
     }, []);
-
     return (
         <div className="App">
         <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>{!data ? "Loading..." : data}</p>
+        <div>
+        {!data ? <h3>...loading</h3> : data.map((e, i)=> {
+            return <h3 key={i}>{e.username}</h3>
+        })}
+        </div>
     </header>
     </div>
 );
