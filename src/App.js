@@ -1,16 +1,15 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import axios from "axios";
 
 function App() {
     const [data, setData] = React.useState(null);
 
     React.useEffect(() => {
-        fetch("http://sahil-json-server.herokuapp.com/users")
-            .then((res) => res.json())
-            .then((data) => {
-                setData(data);
-            });
+        axios.get("http://sahil-json-server.herokuapp.com/users").then((response) => {
+            setData(response.data);
+        });
     }, []);
     return (
         <div className="App">
