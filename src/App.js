@@ -7,7 +7,7 @@ function App() {
     const [data, setData] = React.useState(null);
 
     React.useEffect(() => {
-        axios.get("http://sahil-json-server.herokuapp.com/users").then((response) => {
+        axios.get("https://sahil-json-server.herokuapp.com/users").then((response) => {
             setData(response.data);
         });
     }, []);
